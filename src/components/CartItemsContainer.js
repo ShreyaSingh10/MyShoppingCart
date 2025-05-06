@@ -3,7 +3,9 @@ import CartItem from './CartItem';
 
 const CartItemsContainer = () => {
     return(
-        <div>
+        <div className='cart-item-container'>
+            <h2>Cart Items</h2>
+            <CartItem></CartItem>
             <CartItem></CartItem>
         </div>
     );

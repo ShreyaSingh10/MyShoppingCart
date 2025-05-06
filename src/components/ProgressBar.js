@@ -3,8 +3,8 @@ import React from "react";
 const ProgressBar = () => {
 
     return(
-        <div>
-
+        <div className="progress-bar">
+            Track the Progress here
         </div>
     );
 

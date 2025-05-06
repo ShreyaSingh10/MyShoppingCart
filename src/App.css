@@ -1,12 +1,42 @@
 .App {
+  margin: 100px;
+  border: 1px solid grey;
+}
+.main-heading {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.products-container {
+  border: 1px solid blue;
+  margin: 20px;
 }
-
+.product-list{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.product {
+  border: 1px solid pink;
+  margin: 10px;
+  width: 200px;
+  text-align: center;
+}
+.progress-bar {
+  width: 100;
+  background-color: aquamarine;
+  border: 1px solid black;
+  margin: 20px;
+}
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid lightgray;
+  margin:20px;
+}
+.cart-item-container h2 {
+  margin: 20px;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
