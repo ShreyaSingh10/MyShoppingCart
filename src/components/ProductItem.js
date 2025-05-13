@@ -1,32 +1,36 @@
 import React, {useState} from "react";
 
-const ProductItem = () => {
+const ProductItem = ({ item, updateCart }) => {
+    //console.log("VALUES", key, item);
 
     const [productCount, setProductCount] = useState(1);
 
     const decrement = () => {
         if(productCount >= 1)
             setProductCount(productCount - 1);
+        console.log("decre");
     }
 
     const increment = () => {
         setProductCount(productCount + 1);
+        console.log("incre");
     }
 
-    const addToCart = () => {
-        //adds product to cart callback
-    }
+    // const addToCart = () => {
+    //     updateCart(productName, price, count );
+    //     //adds product to cart callback
+    // }
 
     return(
         <div className="product">
-            <h3> Product Name </h3>
-            <p> Product Price</p>
+            <h3>{item.name}</h3>
+            <p>{item.price}</p>
             <div>
                 <span onClick={decrement}>-</span>
                 <span>{productCount}</span>
                 <span onClick={increment}>+</span>
             </div>
-            <div onClick={addToCart}> Add To Cart</div>
+            <button onClick={() => updateCart(item, productCount)}>Add to Cart</button>
         </div>
     );
 }

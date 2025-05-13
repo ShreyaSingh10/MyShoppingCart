@@ -3,16 +3,21 @@ import ProductsContainer from "./ProductsContainer";
 import ProgressBar from "./ProgressBar";
 import CartItemsContainer from "./CartItemsContainer";
 
-const container = () => {
+const Container = () => {
+    const [list, setList] = useState([]);
+
+    const updateCart = (item, productCount) => {
+        setList(prevList => [...prevList, { id: item.id, name: item.name, price: item.price * productCount, productCount }]);
+    }  
 
     return(
         <div>
             <h1 className="main-heading">My Shopping Cart</h1>
-            <ProductsContainer/>
+            <ProductsContainer updateCart={updateCart}/>
             <ProgressBar/>
-            <CartItemsContainer/>
+            <CartItemsContainer list={list}/>
         </div>
     );
 
 }
-export default container;
+export default Container;

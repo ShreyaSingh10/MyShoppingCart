@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 
-const CartItem = () => {
+const CartItem = ({item}) => {
+  
+    //const [count, setCount] = useState(0);
+    
+    const decrement = () => {
+
+    }
+
+    const increment = () => {
+
+    }
 
     return(
         <div className="cart-item">
             <span>
-                <h3>Product</h3>
-                <p1>Price</p1>
+                <h3>{item.name}</h3>
+                <p>{item.price}</p>
             </span>
             <span>
-                <span>-</span>
-                <span>Value</span>
-                <span>+</span>
+                <span onClick={decrement}>-</span>
+                <span>{item.productCount}</span>
+                <span onClick={increment}>+</span>
             </span>
         </div>
     );
