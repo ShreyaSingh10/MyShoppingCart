@@ -1,16 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const CartItem = ({item}) => {
+const CartItem = ({item, count, updateCart}) => {
+    
+    const [productCount, setProductCount] = useState(count);
   
-    //const [count, setCount] = useState(0);
+    useEffect(() => {
+        setProductCount(count);
+      }, [count]);
     
     const decrement = () => {
-
-    }
+  
+        if(productCount >= 1) {
+            const newCount = productCount - 1;
+            setProductCount(newCount);
+            updateCart(item, newCount); // newCount is accurate
+        }
+       
+    };
 
     const increment = () => {
-
-    }
+        
+        const newCount = productCount + 1;
+        setProductCount(newCount);
+        updateCart(item, newCount); // newCount is accurate
+    };
 
     return(
         <div className="cart-item">
@@ -20,7 +33,7 @@ const CartItem = ({item}) => {
             </span>
             <span>
                 <span onClick={decrement}>-</span>
-                <span>{item.productCount}</span>
+                <span>{productCount}</span>
                 <span onClick={increment}>+</span>
             </span>
         </div>
